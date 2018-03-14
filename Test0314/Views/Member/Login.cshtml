@@ -1,0 +1,29 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Login</title>
+    @Styles.Render("~/Content/css")
+</head>
+<body>
+    <div class="container">
+        <div class="wrapper">
+            @using (Html.BeginForm("Validate", "Member", FormMethod.Post, new { @class = "form-signin" }))
+            {
+                <h3 class="form-signin-heading">登入</h3>
+                <hr class="colorgraph"><br>
+
+                <input type="text" class="form-control" name="account" placeholder="帳號" required="" autofocus="" />
+                <input type="password" class="form-control" name="password" placeholder="密碼" required="" />
+
+                <button class="btn btn-lg btn-primary btn-block" name="Submit" value="Login" type="Submit">登入</button>
+            }
+        </div>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,38 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Register</title>
+    @Styles.Render("~/Content/css")
+</head>
+<body>
+
+    @using (Html.BeginForm("Save", "Member", FormMethod.Post, new { @class = "form-signin" }))
+    {
+        <h1 class="h3 mb-3 font-weight-normal text-center">註冊</h1>
+        <label for="inputAcct" class="sr-only">Account</label>
+        <input type="text" id="inputAcct" name="account" class="form-control" placeholder="帳號" required autofocus>
+        <label for="inputPassword" class="sr-only">Password</label>
+        <input type="password" id="inputPassword" name="password" class="form-control" placeholder="密碼" required>
+        <button class="btn btn-lg btn-primary btn-block" type="submit">註冊</button>
+        <p class="mt-5 mb-3 text-muted">&copy; 2017-2018</p>
+    }
+
+    @Scripts.Render("~/bundles/jquery", "~/bundles/jqueryval", "~/bundles/jqueryuno")
+    <script type="text/javascript">
+        function afterAdd(data) {
+            if (data.Code === 0) {
+                alert(data.Message);
+                location.href = "@Url.Action("Index","Admin", new { area = "SiteAdmin" })";
+            } else {
+                alert(data.Message);
+                return false;
+            }
+        }
+    </script>
+</body>
+</html>
